@@ -1,0 +1,41 @@
+#include <iostream>
+#include<stdlib.h>
+#include <stdio.h>
+#include<math.h>
+#include<algorithm>
+#include<vector>
+#include<string>
+#include<map>
+#include<unordered_map>
+#include <queue>
+#include<set>
+#include<stack>
+using namespace std;
+
+int main(void)  //主程序
+{
+#ifdef ONLINE_JUDGE
+#else
+	freopen("1.txt","r",stdin);
+#endif
+	string ans;
+	int a,b;
+	scanf("%d%d",&a,&b);
+	a+=b;
+	int sum=a,count=0;
+	while(1){
+		ans.push_back('0'+abs(sum%10));
+		sum/=10;
+		if(sum==0) break;
+		count++;
+		if(count%3==0)
+			ans.push_back(',');
+	}
+	if(a<0){
+		ans.push_back('-');
+	}
+	for(int i=ans.size()-1;i>=0;i--){
+		putchar(ans[i]);
+	}
+	return 0;
+}
